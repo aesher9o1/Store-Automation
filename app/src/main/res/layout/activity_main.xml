@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/topLayout"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:keepScreenOn="true">
+
+        <LinearLayout
+            android:layout_marginTop="24dip"
+            android:paddingStart="23dip"
+            android:paddingEnd="23dip"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/background"
+            android:gravity="center"
+            android:elevation="40dip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textSize="25sp"
+                android:padding="5dip"
+                android:textColor="#FFFFFF"
+                android:fontFamily="sans-serif-condensed"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:text="Facial Recognition Module"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+    <one.project.aashis.com.icct.camera.CameraSourcePreview
+        android:id="@+id/preview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <one.project.aashis.com.icct.camera.GraphicOverlay
+            android:id="@+id/faceOverlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </one.project.aashis.com.icct.camera.CameraSourcePreview>
+
+</FrameLayout>

@@ -1,0 +1,97 @@
+from visual import *
+import serial
+import pyttsx
+engine = pyttsx.init()
+
+smiley = sphere(radius= .5, color=color.yellow, pos=(0,0,-0.7))
+eye = sphere(radius= 0.1, color= color.orange, pos=(0.19,0.2,-0.3))
+eye2 = sphere(radius= 0.1, color= color.orange, pos=(-0.19,0.2,-0.3))
+engine = pyttsx.init()
+
+happiness = cylinder(pos=(-1,-0.7,-0.1),axis=(0,1,0), radius=0.07,length =0.01, color = color.red)
+
+
+arduinoSerialData = serial.Serial('com3',9600)
+
+bulb1 = sphere(radius= 0.1, color=color.red, pos=(-0.5,-0.8,-0.7))
+bulb2 = sphere(radius= 0.1, color=color.red, pos=(0,-0.8,-0.7))
+bulb3 = sphere(radius= 0.1, color=color.red, pos=(0.5,-0.8,-0.7))
+
+
+manipal = "Manipal University, Jaipur is one of the premier universities in Jaipur, India. It is the fifth university established under i Manipal Group. Courses and programs are being offered by the university like Law, Engineering, Medical, Hospitality, Allied Health, Management, Communication, Jewellery Management etc. to enhance the interest of students in all fields. It is near Dehmi Kalan village, Tehsil Sanganer, Jaipur district."
+eai = "ICCT is the flagship conference on Communication Technology in China founded in 1986. ICCT 2017, the 17th ICCT will be organized on October 27-30, 2017 in Chengdu, China. ICCT 2017 will keep promoting the information exchange communication technology, which aims to promote international academic exchange and international cooperation, and provides an opportunity for researchers around the world to exchange ideas and latest research results, in both theory and application of communication technologies. In addition to the technical sessions, there will be invited sessions, tutorials, keynote addresses and exhibitions."
+
+
+lengthLabel = label(pos=(0,0.5,0), text='Hello Mr Aashis: ', box=false, height=30)
+
+print "Hello, Mr Aashis Kumar"
+while(True):
+    rate(1000)
+    if (arduinoSerialData.inWaiting()>0):
+         myData = arduinoSerialData.readline()
+         print myData
+         myData = str(myData).strip()
+         
+         if str(myData)=="Oon":
+             lengthLabel.text = "Bulb One Was Turned On"
+             bulb1.color= color.yellow
+         
+         elif myData=="Ooff":
+             lengthLabel.text = "Bulb One Was Turned Off"
+             bulb1.color=color.red
+
+         elif myData=="Ton":
+             lengthLabel.text = "Bulb Two Was Turned On"
+             bulb2.color= color.yellow
+
+         elif myData=="Toff":
+             lengthLabel.text = "Bulb Two Was Turned Off"
+             bulb2.color=color.red
+
+         elif myData=="THon":
+             lengthLabel.text = "Bulb Three Was Turned On"
+             bulb3.color=color.yellow
+
+         elif myData=="THoff":
+             lengthLabel.text = "Bulb Three Was Turned Off"
+             bulb3.color=color.red
+         
+         elif myData[0]=="S":
+            lengthLabel.text = "Smile Please?!"
+            smiley.color=color.blue
+            happiness.length = random.uniform(1, 3)/100;
+            happiness.color= color.red
+        
+            
+         elif myData[0]=="T":
+            lengthLabel.text = "Why So Pale?!"
+            smiley.color=color.white
+            happiness.length = random.uniform(20, 40)/100;
+            happiness.color= color.yellow
+        
+
+         elif myData[0]=="W":
+            lengthLabel.text = "You Look Great"
+            smiley.color=color.yellow
+            happiness.length = random.uniform(70, 100)/100;
+            happiness.color= color.green
+
+            
+
+         elif myData=="Manipal":
+            happiness.length = random.uniform(1, 3)/100;
+            happiness.color= color.red
+            engine.say(manipal)
+            engine.runAndWait()
+
+         elif myData=="EAI":
+            happiness.length = random.uniform(1, 3)/100;
+            happiness.color= color.red
+            engine.say(eai)
+            engine.runAndWait()
+             
+         elif myData[0]=="!":
+             lengthLabel.text = "Hello Mr Aashis: "
+             myData[0] == " "
+             engine.say(myData)
+             engine.runAndWait()
