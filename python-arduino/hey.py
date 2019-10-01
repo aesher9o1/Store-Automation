@@ -25,29 +25,9 @@ lengthLabel = label(pos=(0,0.5,0), text='Welcome to Future Automated Store', box
 
 arduinoSerialData = serial.Serial('com3',9600)
 
-
-
-
-
-
-
-
-
 #Hard Coded Strings out here
 manipal = "Manipal University, Jaipur is one of the premier universities in Jaipur, India. It is the fifth university established under i Manipal Group. Courses and programs are being offered by the university like Law, Engineering, Medical, Hospitality, Allied Health, Management, Communication, Jewellery Management etc. to enhance the interest of students in all fields. It is near Dehmi Kalan village, Tehsil Sanganer, Jaipur district."
 eai = "ICCT17 will serve as a platform for knowledge sharing about the recent trends and advancements in the field of networking and high end data handling and how these domains are playing role in research and market development of the industries. It will provide great opportunity for our students and faculties to interact and share ideas with the top-notch in the field face to face. This knowledge sharing may inspire and thrill many young minds and help us bring collaborations and global partners to work together. This will enable us to solve challenging problems in our society so that we may contribute to our world. The whole idea of the forum is to exchange thoughts and ideas, transform those in real time to solve the problems. Conference will also create awareness in students about the importance of scientific research in related fields and synchronizing with product market."
-
-
-
-
-
-
-
-
-
-
-
-
 
 #SQL variable
 global user_id
@@ -58,31 +38,9 @@ eminem=0
 
 global beyounce
 beyounce=0
-
-
-
-
-
-
-
-
-
  
 #if __name__ == '__main__'
 #   update(1,1)
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #This here upadtes the table 
  
@@ -110,26 +68,6 @@ def update(book1,book2):
     finally:
         conn.close()
         print('Connection closed.')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -165,24 +103,6 @@ def fetch():
     finally:
         cursor.close()
         conn.close()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 #arduino Logic
@@ -261,53 +181,20 @@ while(True):
     
          elif myData=="tushar":
             user_id = 1
-            lengthLabel.text = "Hello Mr Tushar :"
+            lengthLabel.text = "Hello Mr Tushar:"
             print(user_id)
 
          elif myData=="Aashis":
-            lengthLabel.text = "Hello Mr Aashis :"
+            lengthLabel.text = "Hello Mr Aashis:"
             user_id = 3
             print(user_id)
 
          elif myData=="Vidu":
-            lengthLabel.text = "Hello Mr Vidu :"
+            lengthLabel.text = "Hello Mr Vidu:"
             user_id = 4
             print(user_id)
 
          elif myData=="Sid":
-            lengthLabel.text = "Hello Mr Siddhart Jaidka :"
+            lengthLabel.text = "Hello Mr Siddhart Jaidka:"
             user_id = 5
             print(user_id)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
